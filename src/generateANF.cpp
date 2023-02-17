@@ -32,8 +32,8 @@ void generateKeyANF(int round) {
         if (i & 1)
           fprintf(gAnfFile, "rk%.2d_%.2d + rk%.2d_%.2d + 1\n", i, j, i - 1, j);
         else
-          fprintf(gAnfFile, "rk%.2d_%.2d + rk%.2d_%.2d + %.2d + 1\n", i, j,
-                  i - 8, j, ((i - 8) >> 1) & 1);
+          fprintf(gAnfFile, "rk%.2d_%.2d + rk%.2d_%.2d + %d + 1\n", i, j,
+                  i - 8, j, (((i - 8) >> 1) >> j) & 1);
       }
     }
   }
