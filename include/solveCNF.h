@@ -12,6 +12,6 @@
 using std::vector;
 using namespace CMSat;
 
-int solveCNF(int round, uint64_t *key);
+int solveCNF(int round, uint64_t key, uint64_t *guessKey);
 
 #endif  // SOLVE_CNF_H

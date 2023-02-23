@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
 
   fprintf(stderr, "CNF求解中\r");
   clock_t solveCNFStart = clock();
-  if (solveCNF(round, &guessKey)) {
+  if (solveCNF(round, key, &guessKey)) {
     fprintf(stderr, "CNF求解失败\n");
     return -1;
   }
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
           double(solveCNFFinish - solveCNFStart) / CLOCKS_PER_SEC);
 
   clock_t mainFinish = clock();
-  printf("总耗时 %.3fs\n", double(mainFinish - mainStart) / CLOCKS_PER_SEC);
+  fprintf(stderr, "总耗时 %.3fs\n", double(mainFinish - mainStart) / CLOCKS_PER_SEC);
 
   if (compareKey(key, guessKey, round)) {
     fprintf(stderr, "密钥破解失败\n");
